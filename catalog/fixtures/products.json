@@ -1,0 +1,110 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Категория 1",
+      "slug": "kategoriya-1"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Категория 2",
+      "slug": "kategoriya-2"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Товар A",
+      "slug": "tovar-a",
+      "description": "Пример товара A",
+      "price": "12000.00",
+      "old_price": null,
+      "stock": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.productimage",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "image": "products/tovar-a-1.jpg",
+      "alt_text": "Товар A фото",
+      "is_main": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "name": "Товар B",
+      "slug": "tovar-b",
+      "description": "Пример товара B",
+      "price": "18000.00",
+      "old_price": "20000.00",
+      "stock": 8,
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.productimage",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "image": "products/tovar-b-1.jpg",
+      "alt_text": "Товар B фото 1",
+      "is_main": true
+    }
+  },
+  {
+    "model": "catalog.productimage",
+    "pk": 3,
+    "fields": {
+      "product": 2,
+      "image": "products/tovar-b-2.jpg",
+      "alt_text": "Товар B фото 2",
+      "is_main": false
+    }
+  },
+  {
+    "model": "catalog.productimage",
+    "pk": 4,
+    "fields": {
+      "product": 2,
+      "image": "products/tovar-b-3.jpg",
+      "alt_text": "Товар B фото 3",
+      "is_main": false
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Товар C",
+      "slug": "tovar-c",
+      "description": "Пример товара C",
+      "price": "15000.00",
+      "old_price": null,
+      "stock": 0,
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.productimage",
+    "pk": 5,
+    "fields": {
+      "product": 3,
+      "image": "products/tovar-c-1.jpg",
+      "alt_text": "Товар C фото",
+      "is_main": true
+    }
+  }
+]
