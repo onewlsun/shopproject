@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Мой Магазин{% endblock %}</title>
+  <style>
+body {
+  font-family: Arial;
+  margin: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'catalog:home' %}"><b>ГЛАВНАЯ</b></a> | 
+      <a href="{% url 'catalog:category_list' %}">Категории</a>
+    </nav>
+    <hr>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <hr>
+    <small>© 2026 ENU College • Django Shop</small>
+  </footer>
+</body>
+</html>

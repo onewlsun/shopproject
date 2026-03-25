@@ -1,16 +1,12 @@
 from django.contrib import admin
-from django.urls import path
-from catalog.views import product_list, product_detail  # <- теперь эти функции точно есть
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path, include
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('catalog.urls')),
-    path('', product_list, name='product_list'),
-    path('product/<slug:slug>/', product_detail, name='product_detail'),
+    # Этой строки достаточно, она заберет все настройки из catalog/urls.py
+    path('', include('catalog.urls')), 
 ]
 
 if settings.DEBUG:
