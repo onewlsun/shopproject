@@ -1,0 +1,11 @@
+{% for item in cart_items %}
+  <div>
+    {{ item.product.name }} — {{ item.product.price }} тг
+    <a href="{% url 'catalog:increase' item.product.id %}">+</a>
+    <a href="{% url 'catalog:decrease' item.product.id %}">-</a>
+    <a href="{% url 'catalog:remove' item.product.id %}">Удалить</a>
+    Кол-во: {{ item.quantity }} | Всего: {{ item.total }} тг
+  </div>
+{% endfor %}
+
+<h3>Итого: {{ total_sum }} тг ({{ total_quantity }} шт.)</h3>

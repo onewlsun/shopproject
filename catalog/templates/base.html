@@ -36,3 +36,16 @@ a:hover {
   </footer>
 </body>
 </html>
+
+{% if user.is_authenticated %}
+    Привет, {{ user.username }} |
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
+    <a href="{% url 'my_orders' %}">Мои заказы</a>
+{% else %}
+    <a href="{% url 'login' %}">Войти</a> |
+    <a href="{% url 'register' %}">Регистрация</a>
+{% endif %}
+

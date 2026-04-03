@@ -53,3 +53,56 @@
 {% endif %}
 
 {% endblock %}
+
+<h1>Категория: {{ category.name }}</h1>
+
+{% for product in products %}
+  <div>
+    <h2>{{ product.name }}</h2>
+    <p>Цена: {{ product.price }}</p>
+
+    {% if product.stock > 0 %}
+      <a href="{% url 'catalog:add_to_cart' product.id %}">Добавить в корзину</a>
+    {% else %}
+      <span>Нет в наличии</span>
+    {% endif %}
+  </div>
+{% endfor %}
+
+{% load static %}  <!-- если будешь подключать стили отдельно -->
+
+<h1>Категория: {{ category.name }}</h1>
+
+<style>
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.product-card {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<h1>Категория: {{ category.name }}</h1>
+
+{% for product in products %}
+  <div>
+    <h2>{{ product.name }}</h2>
+    <p>Цена: {{ product.price }}</p>
+    <p>В наличии: {{ product.stock }}</p>
+
+    {% if product.stock > 0 %}
+<a href="{% url 'catalog:add_to_cart' product.id %}">
+    Добавить в корзину
+</a>
+    {% else %}
+      <span>Нет в наличии</span>
+    {% endif %}
+  </div>
+{% empty %}
+  <p>Нет товаров в этой категории</p>
+{% endfor %}

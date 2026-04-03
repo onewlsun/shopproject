@@ -1,5 +1,8 @@
 
 from django.db import models
+from django.conf import settings
+from django.db import models
+
 from django.utils.text import slugify
 
 class Category(models.Model):
@@ -25,7 +28,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-# (Опционально) картинки продукта
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='products/')
@@ -34,3 +36,12 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"{self.product.name} image"
+    
+    class Order(models.Model):
+        user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="orders"
+    )

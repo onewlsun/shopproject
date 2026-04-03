@@ -17,5 +17,25 @@
 {% endif %}
 
 <br><br>
+{% if product.stock > 0 %}
+    <form action="{% url 'catalog:add_to_cart' product.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Добавить в корзину</button>
+    </form>
+{% else %}
+    <span>Нет в наличии</span>
+{% endif %}
+
+<h2>Другие товары категории</h2>
+<ul>
+  {% for p in products %}
+    <li>
+      <a href="{% url 'catalog:product_detail' p.slug %}">{{ p.name }}</a> — {{ p.price }} тг
+      {% if p.stock > 0 %} ✅ В наличии {% else %} ❌ Нет в наличии {% endif %}
+    </li>
+  {% empty %}
+    <li>Нет других товаров в этой категории.</li>
+  {% endfor %}
+</ul> 
 
 <a href="/">← Назад</a>
